@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>Pgs</h1>
+
+  <table class="table table-striped" style="margin-top: 30px;">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Address</th>
+        <th>Location</th>
+        <th>NearBy</th>
+        <th>Type</th>
+        <th>Cost</th>
+        <th>Thumbnail</th>
+        <th>Facilities</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pg of pgs">
+        <td>{{pg.id}}</td>
+        <td>{{pg.address}}</td>
+        <td>{{pg.location}}</td>
+        <td>{{pg.nearby}}</td>
+        <td>{{pg.type}}</td>
+        <td>{{pg.cost}}</td>
+        <td>{{pg.thumbnail}}</td>
+        <td>{{pg.facilities}}</td>
+        <td>{{pg.gender}}</td>
+        <td>{{pg.email}}</td>
+        <td>{{pg.password}}</td>
+        <td>
+          <button (click)="onDetails(pg)" class="btn btn-success"><i class="glyphicon glyphicon-info-sign"></i></button>
+          <button (click)="onDelete(pg)" class="btn btn-danger" style="margin-left: 10px"><i class="glyphicon glyphicon-trash"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
