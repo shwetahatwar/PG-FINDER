@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/pg-list']);
   }
 
+ 
   onLogin() {
     alert(this.email + this.password);
     this.userService

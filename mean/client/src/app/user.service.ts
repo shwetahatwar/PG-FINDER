@@ -5,7 +5,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 @Injectable()
 export class UserService implements CanActivate {
 
-  url = 'http://localhost:3000/RakshPgFinder';
+  url = 'http://localhost:8080/RakshPgFinder';
 
   constructor(
     private router: Router,
@@ -24,8 +24,17 @@ export class UserService implements CanActivate {
     return false;
   }
 
-  signup() {
+  signup(name: string, lname: string, email: string, password: string) {
+    const body = {
+      name: name,
+      lname: lname,
+      email: email,
+      password: password
+    };
+    const header = new Headers({'Content-Type': 'application/json'});
+    const requestOption = new RequestOptions({headers: header});
 
+    return this.http.post(this.url + '/signup', body, requestOption);
   }
 
   signin(email: string, password: string) {

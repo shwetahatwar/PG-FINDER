@@ -13,10 +13,7 @@ export class PgListComponent implements OnInit {
   pgs = [];
 
   // dependancy injection
-  constructor(
-    private router: Router,
-    private pgService: PgService) {
-
+  constructor(private router: Router, private pgService: PgService) {
       this.refreshPgList();
   }
 
@@ -28,6 +25,7 @@ export class PgListComponent implements OnInit {
        //alert(result.data);
 
         this.pgs = result.data;
+      console.log('pgs data ele:: ', this.pgs);
       });
   }
 

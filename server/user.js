@@ -1,8 +1,22 @@
 const express = require('express');
 const db = require('./db');
 const utils = require('./utils');
+const multer = require('multer');
+const upload = multer({dest: 'images/'});
 
 const router = express.Router();
+
+router.post('/RakshPgFinder/thumbnail/:id', upload.single('photo'), (request, response) => {
+    console.log('file uploaded at: ' + request.file.filename);
+    
+    const id = request.params.id;
+    const statement = `update RakshPgFinder set thumbnail = '${request.file.filename}' where id = ${id}`;
+    const connection = db.connect();
+    connection.query(statement, (error, result) => {
+        connection.end();
+        response.send(utils.createResponse(error, result));
+    });
+});
 
 router.post('/RakshPgFinder/signup', (request, response) => {
     const { name, email, password, phone } = request.body;

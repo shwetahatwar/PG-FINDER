@@ -12,6 +12,7 @@ app.use(function(req, res, next) {
 });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+app.use(express.static('images'));
 
 // routers
 app.use(RakshPgFinderRouter);

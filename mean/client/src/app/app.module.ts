@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { UserService } from './user.service';
 import { AddPgComponent } from './add-pg/add-pg.component';
 import { PgListComponent } from './pg-list/pg-list.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PgListComponent } from './pg-list/pg-list.component';
     AboutComponent,
     HelpComponent,
     PgDetailsComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -30,11 +32,12 @@ import { PgListComponent } from './pg-list/pg-list.component';
     HttpModule,
     RouterModule.forRoot([
       { path: 'pg-add', component: AddPgComponent, canActivate: [UserService] },
-      { path: 'pg-list', component: PgListComponent },
+      { path: '', component: PgListComponent },
       { path: 'about', component: AboutComponent },
       { path: 'help', component: HelpComponent },
       { path: 'pg-details', component: PgDetailsComponent },
-      { path: 'login', component: LoginComponent }
+      { path: 'login', component: LoginComponent },
+      { path: 'signup', component: SignupComponent }
     ])
   ],
   providers: [

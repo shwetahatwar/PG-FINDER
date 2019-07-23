@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-pg.component.css']
 })
 export class AddPgComponent implements OnInit {
+  id = '';
   address = '';
   location = '';
   nearby = '';
@@ -31,7 +32,7 @@ export class AddPgComponent implements OnInit {
 
   onAdd() {
     this.pgService
-      .addPg(this.address, this.location, this.nearby, this.Type, this.cost, this.thumbnail, this.facilities, this.gender,this.email,this.password)
+      .addPg(this.id,this.address, this.location, this.nearby, this.Type, this.cost, this.thumbnail, this.facilities, this.gender,this.email,this.password)
       .subscribe(response => {
         console.log(response);
         this.router.navigate(['/pg-list']);
